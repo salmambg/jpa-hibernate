@@ -1,18 +1,21 @@
 package info.salma.entity;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.Id;
+import javax.persistence.Entity;
+import javax.persistence.Id;
 
 @Entity
 public class Course {
     @Id
-    @GeneratedValue
     private long id;
     private String name;
-    protected Course() {
+    public Course() {
 
     }
+
+    public void setId(long id) {
+        this.id = id;
+    }
+
     public long getId() {
         return id;
     }
