@@ -30,4 +30,5 @@ public class DatabaseSeeder {
         course.setName("JPA in 50 Steps");
         courseRepository.save(course);
     }
+
 }
