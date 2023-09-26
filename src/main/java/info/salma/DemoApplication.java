@@ -8,6 +8,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
+
+import java.util.List;
 import java.util.Optional;
 
 @SpringBootApplication
@@ -20,7 +22,12 @@ public class DemoApplication  implements CommandLineRunner {
     }
     @Override
     public void run(String... arg0) throws Exception {
-        Optional<Course> course = courseRepository.findById(10001L);
-        logger.info("Course 10001 -> {}", course.orElse(null));
+        List<Course> courses = courseRepository.findAll();
+        for (Course course : courses) {
+            logger.info("Course -> {}", course);
+        }
+        Optional<Course> specificCourse = courseRepository.findById(10001L);
+        logger.info("Course 10001 -> {}", specificCourse.orElse(null));
+        courseRepository.deleteById(10001L);
     }
 }
