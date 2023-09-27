@@ -46,12 +46,6 @@ public class DatabaseSeeder {
         courses.add(course3);
 
         courseRepository.saveAll(courses);
-
-    }
-
-    public void RemoveData() {
-        long courseIdToDelete = 10001; // Set the ID of the course you want to delete
-        courseRepository.deleteById(courseIdToDelete);
     }
 
 }

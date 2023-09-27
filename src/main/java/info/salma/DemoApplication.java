@@ -26,8 +26,18 @@ public class DemoApplication  implements CommandLineRunner {
         for (Course course : courses) {
             logger.info("Course -> {}", course);
         }
+        Optional<Course> specificCourses = courseRepository.findById(10001L);
+        if (specificCourses.isPresent()) {
+            Course courseToUpdate = specificCourses.get();
+            courseToUpdate.setName("MicroService in 50 steps"); // Update the course name
+            courseRepository.save(courseToUpdate); // Save the updated course
+            logger.info("Course 10001 updated -> {}", courseToUpdate);
+        } else {
+            logger.warn("Course 10001 not found");
+        }
         Optional<Course> specificCourse = courseRepository.findById(10001L);
         logger.info("Course 10001 -> {}", specificCourse.orElse(null));
-        courseRepository.deleteById(10001L);
+        courseRepository.deleteById(10002L);
+
     }
 }
