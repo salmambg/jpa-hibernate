@@ -6,7 +6,7 @@ import javax.persistence.Id;
 @Entity
 public class Course {
     @Id
-    private long id;
+    private Long id;
     private String name;
     public Course() {
 

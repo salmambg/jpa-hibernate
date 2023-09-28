@@ -22,22 +22,27 @@ public class DemoApplication  implements CommandLineRunner {
     }
     @Override
     public void run(String... arg0) throws Exception {
-        List<Course> courses = courseRepository.findAll();
-        for (Course course : courses) {
-            logger.info("Course -> {}", course);
-        }
-        Optional<Course> specificCourses = courseRepository.findById(10001L);
-        if (specificCourses.isPresent()) {
-            Course courseToUpdate = specificCourses.get();
-            courseToUpdate.setName("MicroService in 50 steps"); // Update the course name
-            courseRepository.save(courseToUpdate); // Save the updated course
-            logger.info("Course 10001 updated -> {}", courseToUpdate);
-        } else {
-            logger.warn("Course 10001 not found");
-        }
-        Optional<Course> specificCourse = courseRepository.findById(10001L);
-        logger.info("Course 10001 -> {}", specificCourse.orElse(null));
-        courseRepository.deleteById(10002L);
+//        List<Course> courses = courseRepository.findAll();
+//        for (Course course : courses) {
+//            logger.info("Course -> {}", course);
+//        }
+//        Optional<Course> specificCourse = courseRepository.findById(10001L);
+//        logger.info("Course 10001 -> {}", specificCourse.orElse(null));
+//
+//        Optional<Course> specificCourse2 = courseRepository.findById(10002L);
+//        logger.info("Course 10002 -> {}", specificCourse.orElse(null));
+//
+//
+//        Optional<Course> specificCourses = courseRepository.findById(10001L);
+//        if (specificCourses.isPresent()) {
+//            Course courseToUpdate = specificCourses.get();
+//            courseToUpdate.setName("MicroService in 50 steps"); // Update the course name
+//            courseRepository.save(courseToUpdate); // Save the updated course
+//            logger.info("Course 10001 updated -> {}", courseToUpdate);
+//        } else {
+//            logger.warn("Course 10001 not found");
+//        }
+//        courseRepository.deleteById(10003L);
 
     }
 }
