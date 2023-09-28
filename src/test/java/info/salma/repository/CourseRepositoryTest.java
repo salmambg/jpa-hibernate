@@ -17,7 +17,7 @@ class CourseRepositoryTest {
     public void findById() {
         repository.findById(10001L)
                 .ifPresent(
-                        entity -> assertEquals("JPA in 50 Steps", entity.getName())
+                        entity -> assertEquals("MicroService in 50 steps", entity.getName())
                 );
     }
 
@@ -43,7 +43,7 @@ class CourseRepositoryTest {
 
     @Test
     public void DeleteCourseById() {
-        repository.deleteById(10003L);
-        assertFalse(repository.findById(10003L).isPresent());
+        repository.deleteById(10004L);
+        assertFalse(repository.findById(10004L).isPresent());
     }
 }
