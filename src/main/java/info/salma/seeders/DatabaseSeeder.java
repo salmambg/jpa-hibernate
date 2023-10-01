@@ -36,7 +36,7 @@ public class DatabaseSeeder {
 
         Course course2 = new Course();
         course2.setId(10002);
-        course2.setName("Spring Boot Basics");
+        course2.setName("Spring Boot Basics ");
         courses.add(course2);
 
         Course course3 = new Course();

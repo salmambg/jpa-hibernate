@@ -39,7 +39,7 @@ public class DemoApplication  implements CommandLineRunner {
         logger.info("Course 10002 -> {}", specificCourse2.orElse(null));
 
         specificCourse2.ifPresent(course -> {
-            course.setName("JPA Hibernate Basics"); // Set the new name
+            course.setName("JPA Hibernate Basics with 100 Steps"); // Set the new name
             courseRepository.save(course); // Save the updated course
             logger.info("Course 10002 updated -> {}", course);
         });

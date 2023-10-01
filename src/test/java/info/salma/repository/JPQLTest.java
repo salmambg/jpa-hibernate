@@ -1,6 +1,5 @@
 package info.salma.repository;
 
-import info.salma.DemoApplication;
 import info.salma.entity.Course;
 import org.junit.jupiter.api.Test;
 import org.slf4j.Logger;
@@ -18,12 +17,12 @@ public class JPQLTest {
 
     @Test
     public void jpql_basic() {
-        List<Course> courses = courseRepository.findAll();
+        List<Course> courses = courseRepository.getAllCourse();
         logger.info("Select c From Course c -> {}", courses);
     }
     @Test
      public void jpql_where() {
-        List<Course> courses = courseRepository.findCourseByNameIsLike("%100 Steps");
+        List<Course> courses = courseRepository.getCourse("%100 Steps");
         logger.info("Select c From Course c where name like '100 Steps'-> {}", courses);
     }
 }

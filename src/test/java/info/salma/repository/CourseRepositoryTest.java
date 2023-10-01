@@ -21,7 +21,6 @@ class CourseRepositoryTest {
                 );
     }
 
-
     @Test
     public void UpdateCourse() {
         // Arrange: Retrieve an existing course from the database

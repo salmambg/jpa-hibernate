@@ -2,25 +2,30 @@ package info.salma.entity;
 
 import org.hibernate.annotations.CreationTimestamp;
 import org.hibernate.annotations.UpdateTimestamp;
+import org.springframework.data.jpa.repository.Query;
 
 import javax.persistence.*;
 import java.sql.Timestamp;
-import java.util.Date;
+
 
 @Entity
-@Table(name = "courses  ")
-
+@Table(name = "courses")
+@NamedQueries(value = {
+        @NamedQuery(name = "query_get_all_courses",
+                query = "Select  c  From Course c"),
+        @NamedQuery(name = "query_get_100_Step_courses",
+                query = "Select  c  From Course c where name like '%100 Steps'") })
 public class Course {
     @Id
     private Long id;
     private String name;
 
     @CreationTimestamp
-    @Column(name = "created_at", nullable = false, updatable = false)
+    @Column(name = "created_at", updatable = false)
     private Timestamp createdAt;
 
     @UpdateTimestamp
-    @Column(name = "updated_at", nullable = false)
+    @Column(name = "updated_at")
     private Timestamp updatedAt;
 
     public Course() {
