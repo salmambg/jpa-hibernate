@@ -29,19 +29,20 @@ public class DemoApplication  implements CommandLineRunner {
         Optional<Course> specificCourse = courseRepository.findById(10001L);
         logger.info("Course 10001 -> {}", specificCourse.orElse(null));
 
+        specificCourse.ifPresent(course -> {
+            course.setName("MicroService in 50 Steps"); // Set the new name
+            courseRepository.save(course); // Save the updated course
+            logger.info("Course 10001 updated -> {}", course);
+        });
+
         Optional<Course> specificCourse2 = courseRepository.findById(10002L);
-        logger.info("Course 10002 -> {}", specificCourse.orElse(null));
+        logger.info("Course 10002 -> {}", specificCourse2.orElse(null));
 
-
-        Optional<Course> specificCourses = courseRepository.findById(10001L);
-        if (specificCourses.isPresent()) {
-            Course courseToUpdate = specificCourses.get();
-            courseToUpdate.setName("MicroService in 50 steps"); // Update the course name
-            courseRepository.save(courseToUpdate); // Save the updated course
-            logger.info("Course 10001 updated -> {}", courseToUpdate);
-        } else {
-            logger.warn("Course 10001 not found");
-        }
+        specificCourse2.ifPresent(course -> {
+            course.setName("JPA Hibernate Basics"); // Set the new name
+            courseRepository.save(course); // Save the updated course
+            logger.info("Course 10002 updated -> {}", course);
+        });
 
         courseRepository.deleteById(10003L);
     }
