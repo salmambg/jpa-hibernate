@@ -15,4 +15,7 @@ public interface CourseRepository extends JpaRepository<Course, Long> {
 
     @Query(name = "query_get_100_Step_courses")
     List<Course> getCourse(String s);
+
+    @Query(value = "SELECT * FROM courses WHERE name LIKE  %?1%", nativeQuery = true)
+    List<Course> getCourseName(String name);
 }
